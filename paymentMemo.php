@@ -26,7 +26,7 @@ $result = mysqli_query($conn, $query);
 
 <!-- Search Bar -->
 <div class="memo-search">
-  <input type="text" placeholder="🔍 Search Project">
+  <input type="text" placeholder="🔍︎ Search Project">
 </div>
 
 <!-- Memo Table -->
