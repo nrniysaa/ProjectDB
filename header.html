@@ -1,72 +1,16 @@
-<!-- header.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>UTeM HOLDINGS</title>
-  <link rel="stylesheet" href="style.css"> <!-- Optional: link to external CSS -->
-  <style>
-    /* Internal CSS can also be used or moved to style.css */
-    .top-header {
-      background-color: #c0c0c0;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .top-header img {
-      height: 50px;
-    }
-
-    .top-header .user-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .top-header .user-info span {
-      font-size: 16px;
-      color: #333;
-    }
-
-    .top-header .user-circle {
-      background-color: #eac4f2;
-      color: white;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    .nav-bar {
-      background-color: #30457d;
-      display: flex;
-      padding: 10px 20px;
-    }
-
-    .nav-bar a {
-      color: white;
-      text-decoration: none;
-      margin-right: 20px;
-      font-weight: normal;
-    }
-
-    .nav-bar a.active {
-      font-weight: bold;
-    }
-
-    .nav-bar a:last-child {
-      margin-left: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
 </head>
 <body>
   <div class="top-header">
-    <img src="image/Logo_UTeM-Holdings_Bright-Back-1.png" alt="UTeM Holdings Logo"> <!-- Replace with actual logo -->
+  
+    <img src="image/Logo_UTeM-Holdings_Bright-Back-1.png" alt="UTeM Holdings Logo" style="height:60px; width:auto;">
+
     <div class="user-info">
       <span>xxx</span>
       <div class="user-circle">A</div>
@@ -74,9 +18,9 @@
   </div>
 
   <div class="nav-bar">
-    <a href="overview.php">Project Overview</a>
-    <a href="directory.php" class="active">Project Directory</a>
-    <a href="memo.php">Payment Memo</a>
+    <a href="ProjectOverview.php">Project Overview</a>
+    <a href="projectDirectory.php" class="active">Project Directory</a>
+    <a href="paymentMemo.php">Payment Memo</a>
     <a href="kastam.php">KASTAM</a>
     <a href="report.php">Report</a>
     <a href="logout.php">Log Out</a>

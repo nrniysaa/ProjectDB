@@ -1,0 +1,634 @@
+.top-header {
+  background-color: #c0c0c0;
+  height: 100px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.top-header .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-header .user-info span {
+  font-size: 16px;
+  color: #333;
+}
+
+.top-header .user-circle {
+  background-color: #eac4f2;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.nav-bar {
+  background-color: #30457d;
+  display: flex;
+  padding: 10px 20px;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+.nav-bar a.active {
+  font-weight: bold;
+}
+
+.nav-bar a:last-child {
+  margin-left: auto;
+}
+
+body {
+  padding-top: 120px; /* increase from 120px */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.banner {
+  position: relative;
+  text-align: center;
+  overflow: visible; /* Allow shadow to render outside */
+  padding: 20px; /* Space around the image */
+  background-color: #f5f5f5; /* Light background for contrast */
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 1200px;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px; /* Optional rounded corners */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Drop shadow */
+  filter: brightness(0.85) blur(1px); /* Adjust image quality/contrast */
+  transform: scale(1.02); /* Slight zoom effect */
+}
+
+.banner-title {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+
+
+.card-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-group, .revenue-group, .project-value-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card, .revenue-card, .value-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  min-width: 200px;
+  flex: 1;
+  max-width: 250px;
+}
+
+.card h2, .value-card h2 {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.revenue-detail {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.search-input {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+.button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.new-project-btn {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 50px;
+}
+
+.project-table {
+  width: 90%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.project-table th, .project-table td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+}
+
+.project-table thead {
+  background-color: #30457d;
+  color: white;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+  color: white;
+}
+
+.badge.ongoing {
+  background-color: #3f74c0;
+}
+
+.badge.completed {
+  background-color: #5ebc8a;
+}
+
+.badge.extend {
+  background-color: #f5b46d;
+  color: black;
+}
+
+.badge.cancelled {
+  background-color: #d9534f;
+}
+
+.edit-btn, .delete-btn {
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+}
+
+.delete-btn {
+  color: red;
+}
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.details-box {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+}
+
+.details-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.details-table td {
+  padding: 10px 0;
+  vertical-align: top;
+}
+
+.details-buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-btn, .edit-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #8f98c5;
+}
+
+.back-btn:hover {
+  background-color: #333;
+}
+
+.edit-btn:hover {
+  background-color: #7a83b5;
+}
+
+.container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.add-member-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cancel {
+    background-color: #ccc;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.next {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.bordered-card {
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 200px;
+  flex: 1;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bordered-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(143, 152, 197, 0.4);
+  cursor: pointer;
+}
+
+.bordered-card hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.revenue-detail {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Base styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h2, h3, h4 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* Form container */
+.form-box {
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  background-color: #efefef;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 18px;
+  border-left: 5px solid #003366;
+}
+
+/* Labels and inputs */
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+input[type="number"],
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 220px;
+  font-size: 14px;
+  background-color: #fefefe;
+}
+
+/* Totals and section rows */
+.total-line {
+  text-align: right;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.grand-total {
+  font-size: 18px;
+  margin-top: 20px;
+  border-top: 1px solid #aaa;
+  padding-top: 10px;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.back-btn {
+  background-color: #666;
+  color: #fff;
+}
+
+.confirm-btn {
+  background-color: #003366;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 600px) {
+  label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .button-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fc;
+  margin: 0;
+  padding: 0;
+  body {
+  padding-top: 140px; /* Adjust value to match header height */
+}
+
+}
+
+.container {
+  max-width: 900px;
+  margin: 120px auto 60px auto; /* TOP margin increased */
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.cost-section {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.cost-section h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.input-group input {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.input-group .desc {
+  flex: 2;
+}
+
+.input-group .amount {
+  width: 120px;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button[type="button"] {
+  background: #2c3e50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.totals {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.totals input {
+  padding: 6px;
+  margin-left: 10px;
+  width: 80px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
