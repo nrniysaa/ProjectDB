@@ -40,16 +40,24 @@ $result = mysqli_query($conn, $query);
       </tr>
     </thead>
     <tbody>
-      <?php while($row = mysqli_fetch_assoc($result)): ?>
-        <tr>
-          <td><?= htmlspecialchars($row['project_id']) ?></td>
-          <td><?= htmlspecialchars($row['project_title']) ?></td>
-          <td style="text-align: right;">
-            <a href="viewMemo.php?memo_id=<?= $row['memo_id'] ?>" class="memo-view-link">View Memo</a>
-          </td>
-        </tr>
-      <?php endwhile; ?>
-    </tbody>
+  <tr>
+    <td>xxx</td>
+    <td>xxx</td>
+    <td style="text-align: right;">
+      <a href="#" class="memo-view-link">View Memo</a>
+    </td>
+  </tr>
+
+  <?php while($row = mysqli_fetch_assoc($result)): ?>
+    <tr>
+      <td><?= htmlspecialchars($row['project_id']) ?></td>
+      <td><?= htmlspecialchars($row['project_title']) ?></td>
+      <td style="text-align: right;">
+        <a href="viewMemo.php?memo_id=<?= $row['memo_id'] ?>" class="memo-view-link">View Memo</a>
+      </td>
+    </tr>
+  <?php endwhile; ?>
+</tbody>
   </table>
 </div>
 
