@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $query);
 
 <!-- Banner -->
 <div class="memo-banner">
-  <img src="image/memo-banner.jpg" alt="Banner"> <!-- Use your actual image path -->
+  <img src="image/bgimg.jpg" alt="Banner"> 
   <h1>Payment Memo</h1>
 </div>
 
