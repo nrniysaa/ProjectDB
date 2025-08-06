@@ -94,7 +94,7 @@
     const totalB = calculateSectionTotal('sectionB');
     const totalC = calculateSectionTotal('sectionC');
     const totalD = calculateSectionTotal('sectionD');
-
+ 
     const subtotal = totalA + totalB + totalC + totalD;
     const sst = parseFloat(document.getElementById('sst').value) || 0;
     const sstAmount = (sst / 100) * subtotal;
