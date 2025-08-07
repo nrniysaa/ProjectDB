@@ -19,6 +19,7 @@
   gap: 10px;
 }
 
+
 .top-header .user-info span {
   font-size: 16px;
   color: #333;
@@ -163,7 +164,7 @@ body {
 
 .new-project-btn {
   display: inline-block;
-  background-color: #4CAF50;
+  background-color: #365686;
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -215,7 +216,7 @@ body {
 }
 
 .badge.completed {
-  background-color: #5ebc8a;
+  background-color: #5da061cd;
 }
 
 .badge.extend {
@@ -882,4 +883,164 @@ display: none;
 .nav-bar {
 display: none !important;
 }
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 26px;
+}
+
+.cost-section {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.cost-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #374151;
+  border-left: 5px solid #667eea;
+  padding-left: 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.input-group input {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.input-group .desc {
+  flex: 1.5;
+}
+
+.input-group .amount {
+  width: 130px;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+button[type="button"] {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #556cd6;
+}
+
+.totals {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.totals label {
+  font-weight: 500;
+}
+
+.totals input {
+  margin-left: 10px;
+  width: 60px;
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.totals p {
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+#grandTotal {
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+button.confirm-btn {
+  background-color: #27ae60;
+}
+
+button.back-btn {
+  background-color: #bdc3c7;
+}
+
+button.confirm-btn:hover {
+  background-color: #219150;
+}
+
+button.back-btn:hover {
+  background-color: #a7b1b8;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-group .amount {
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

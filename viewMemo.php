@@ -27,7 +27,7 @@ $recipients = $stmt2->get_result();
   <title>View Memo</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body style="padding-top: 120px;">
 
 <div class="memo-container">
   <h2>Payment Memo: <?= htmlspecialchars($memo['ref_no']) ?></h2>

@@ -7,7 +7,7 @@
   <title>Project Report</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body style="padding-top: 20px;">
 
 <div class="report-box">
   <h2 class="report-title">REPORT</h2>

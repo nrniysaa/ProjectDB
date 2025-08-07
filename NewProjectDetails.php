@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
 </head>
-<body>
+<body style="padding-top: 120px;">
 
   <!-- Include header -->
   <?php include 'header.html'; ?>
