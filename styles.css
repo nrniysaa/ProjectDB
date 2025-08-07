@@ -19,6 +19,7 @@
   gap: 10px;
 }
 
+
 .top-header .user-info span {
   font-size: 16px;
   color: #333;
@@ -163,7 +164,7 @@ body {
 
 .new-project-btn {
   display: inline-block;
-  background-color: #4CAF50;
+  background-color: #365686;
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -215,7 +216,7 @@ body {
 }
 
 .badge.completed {
-  background-color: #5ebc8a;
+  background-color: #5da061cd;
 }
 
 .badge.extend {

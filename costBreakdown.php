@@ -2,14 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Project Cost Breakdown</title>
-  <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+  <title>Project Overview</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
+</head>
+<body style="padding-top: 120px;">
+
+
+  <?php include 'header.html'; ?>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px 40px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+
+    .cost-section {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .cost-section h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #374151;
+      border-left: 5px solid #667eea;
+      padding-left: 10px;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .input-group input {
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+
+    .input-group .desc {
+      flex: 1.5;
+    }
+
+    .input-group .amount {
+      width: 130px;
+    }
+
+    .delete-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      font-size: 13px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button[type="button"] {
+      background-color: #667eea;
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .jumlah-line {
+      text-align: right;
+      font-weight: 500;
+      margin-top: 10px;
+      color: #2c3e50;
+    }
+
+    .jumlah-line.grand {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+
+    .totals {
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .totals label {
+      font-weight: 500;
+    }
+
+    .totals input[type="number"] {
+      margin-left: 10px;
+      width: 60px;
+      padding: 5px 8px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .totals input[type="checkbox"] {
+      margin-left: 5px;
+      transform: scale(1.1);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .confirm-btn {
+      background-color: #27ae60;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      background-color: #bdc3c7;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 600px) {
+      .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .input-group .amount {
+        width: 100%;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<?php include 'header.html'; ?>
-
-<main class="container">
+<div class="container">
   <h2>PROJECT COST BREAKDOWN</h2>
 
   <form id="costForm">
@@ -19,7 +187,7 @@
       <h3>A. Pembayaran/Caj kepada Perunding</h3>
       <div class="inputs"></div>
       <button type="button" onclick="addItem('sectionA')">+ Add Item</button>
-      <p>Jumlah A: RM <span id="totalA">0.00</span></p>
+      <div class="jumlah-line">Jumlah A: RM <span id="totalA">0.00</span></div>
     </section>
 
     <!-- Section B -->
@@ -27,7 +195,7 @@
       <h3>B. Caj oleh Fakulti/PTJ</h3>
       <div class="inputs"></div>
       <button type="button" onclick="addItem('sectionB')">+ Add Item</button>
-      <p>Jumlah B: RM <span id="totalB">0.00</span></p>
+      <div class="jumlah-line">Jumlah B: RM <span id="totalB">0.00</span></div>
     </section>
 
     <!-- Section C -->
@@ -35,7 +203,7 @@
       <h3>C. Perbelanjaan Operasi</h3>
       <div class="inputs"></div>
       <button type="button" onclick="addItem('sectionC')">+ Add Item</button>
-      <p>Jumlah C: RM <span id="totalC">0.00</span></p>
+      <div class="jumlah-line">Jumlah C: RM <span id="totalC">0.00</span></div>
     </section>
 
     <!-- Section D -->
@@ -43,29 +211,29 @@
       <h3>D. Lain-lain Perbelanjaan</h3>
       <div class="inputs"></div>
       <button type="button" onclick="addItem('sectionD')">+ Add Item</button>
-      <p>Jumlah D: RM <span id="totalD">0.00</span></p>
+      <div class="jumlah-line">Jumlah D: RM <span id="totalD">0.00</span></div>
     </section>
 
     <!-- SST and Grand Total -->
     <section class="totals">
-      <label for="sst">SST (%)</label>
-      <input type="number" id="sst" value="8" min="0" oninput="updateTotals()">
-
-      <p>SST Amount: RM <span id="sstAmount">0.00</span></p>
-      <p><strong>Jumlah Keseluruhan:</strong> RM <span id="grandTotal">0.00</span></p>
+      <label>
+        <input type="checkbox" id="includeSST" checked onchange="updateTotals()">
+        Include SST (8%)
+      </label>
+      <div class="jumlah-line">SST Amount: RM <span id="sstAmount">0.00</span></div>
+      <div class="jumlah-line grand">Jumlah Keseluruhan: RM <span id="grandTotal">0.00</span></div>
     </section>
 
     <div class="buttons">
-      <button type="button">BACK</button>
-      <button type="submit">CONFIRM</button>
+      <button type="button" class="back-btn">BACK</button>
+      <button type="submit" class="confirm-btn">CONFIRM</button>
     </div>
   </form>
-</main>
+</div>
 
 <script>
   function addItem(sectionId) {
     const section = document.getElementById(sectionId).querySelector('.inputs');
-
     const div = document.createElement('div');
     div.className = 'input-group';
 
@@ -94,10 +262,11 @@
     const totalB = calculateSectionTotal('sectionB');
     const totalC = calculateSectionTotal('sectionC');
     const totalD = calculateSectionTotal('sectionD');
- 
+
     const subtotal = totalA + totalB + totalC + totalD;
-    const sst = parseFloat(document.getElementById('sst').value) || 0;
-    const sstAmount = (sst / 100) * subtotal;
+    const includeSST = document.getElementById('includeSST').checked;
+    const sstRate = 8;
+    const sstAmount = includeSST ? (sstRate / 100) * subtotal : 0;
     const grandTotal = subtotal + sstAmount;
 
     document.getElementById('totalA').textContent = totalA.toFixed(2);
