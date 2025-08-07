@@ -4,15 +4,19 @@ include 'header.html';
 
 $memo_id = $_GET['memo_id'] ?? 0;
 
-$memoQuery = "SELECT m.ref_no, p.project_id, p.project_title 
-              FROM memo m 
-              JOIN project p ON p.project_id = m.project_id 
-              WHERE m.memo_id = ?";
+// Get memo and related project info
+$memoQuery = "
+    SELECT m.ref_no, p.project_id, p.title 
+    FROM memo m 
+    JOIN projects p ON p.project_id = m.project_id 
+    WHERE m.memo_id = ?
+";
 $stmt = $conn->prepare($memoQuery);
 $stmt->bind_param("i", $memo_id);
 $stmt->execute();
 $memo = $stmt->get_result()->fetch_assoc();
 
+// Get recipient list for the memo
 $recipientsQuery = "SELECT * FROM memo_recipient WHERE memo_id = ?";
 $stmt2 = $conn->prepare($recipientsQuery);
 $stmt2->bind_param("i", $memo_id);
@@ -25,14 +29,14 @@ $recipients = $stmt2->get_result();
 <head>
   <meta charset="UTF-8">
   <title>View Memo</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="memo.css"> <!-- use memo.css to avoid conflict -->
 </head>
 <body style="padding-top: 120px;">
 
 <div class="memo-container">
   <h2>Payment Memo: <?= htmlspecialchars($memo['ref_no']) ?></h2>
   <p><strong>Project Code:</strong> <?= htmlspecialchars($memo['project_id']) ?></p>
-  <p><strong>Project Title:</strong> <?= htmlspecialchars($memo['project_title']) ?></p>
+  <p><strong>Project Title:</strong> <?= htmlspecialchars($memo['title']) ?></p>
 
   <table class="memo-table">
     <thead>
@@ -65,3 +69,4 @@ $recipients = $stmt2->get_result();
 
 </body>
 </html>
+

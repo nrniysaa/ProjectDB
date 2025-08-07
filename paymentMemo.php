@@ -2,10 +2,11 @@
 include 'db.php';
 include 'header.html';
 
-$query = "SELECT p.project_id, p.project_title, m.memo_id, m.ref_no 
-          FROM project p
+$query = "SELECT p.project_id, p.title, m.memo_id, m.ref_no 
+          FROM projects p
           JOIN memo m ON p.project_id = m.project_id";
 $result = mysqli_query($conn, $query);
+
 ?>
 
 <!DOCTYPE html>
