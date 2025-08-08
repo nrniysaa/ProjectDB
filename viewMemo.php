@@ -16,12 +16,29 @@ $stmt->bind_param("i", $memo_id);
 $stmt->execute();
 $memo = $stmt->get_result()->fetch_assoc();
 
+// If no real memo found, use example data
+if (!$memo) {
+    $memo = [
+        'ref_no' => 'EXAMPLE-REF-001',
+        'project_id' => 'PRJ001',
+        'title' => 'Example Project Title'
+    ];
+}
+
 // Get recipient list for the memo
 $recipientsQuery = "SELECT * FROM memo_recipient WHERE memo_id = ?";
 $stmt2 = $conn->prepare($recipientsQuery);
 $stmt2->bind_param("i", $memo_id);
 $stmt2->execute();
 $recipients = $stmt2->get_result();
+
+// If no recipients, create example rows
+if ($recipients->num_rows === 0) {
+    $exampleRecipients = [
+        ['name' => 'John Doe', 'bank' => 'Maybank', 'account_no' => '1234567890', 'amount' => 5000.00, 'justification' => 'Consultancy Fee'],
+        ['name' => 'Jane Smith', 'bank' => 'CIMB', 'account_no' => '9876543210', 'amount' => 3000.00, 'justification' => 'Materials Purchase']
+    ];
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +46,7 @@ $recipients = $stmt2->get_result();
 <head>
   <meta charset="UTF-8">
   <title>View Memo</title>
-  <link rel="stylesheet" href="memo.css"> <!-- use memo.css to avoid conflict -->
+  <link rel="stylesheet" href="styles.css"> <!-- merged into main styles.css -->
 </head>
 <body style="padding-top: 120px;">
 
@@ -49,15 +66,27 @@ $recipients = $stmt2->get_result();
       </tr>
     </thead>
     <tbody>
-      <?php while($r = $recipients->fetch_assoc()): ?>
-      <tr>
-        <td><?= htmlspecialchars($r['name']) ?></td>
-        <td><?= htmlspecialchars($r['bank']) ?></td>
-        <td><?= htmlspecialchars($r['account_no']) ?></td>
-        <td><?= number_format($r['amount'], 2) ?></td>
-        <td><?= htmlspecialchars($r['justification']) ?></td>
-      </tr>
-      <?php endwhile; ?>
+      <?php if (!empty($exampleRecipients)): ?>
+        <?php foreach ($exampleRecipients as $r): ?>
+        <tr>
+          <td><?= htmlspecialchars($r['name']) ?></td>
+          <td><?= htmlspecialchars($r['bank']) ?></td>
+          <td><?= htmlspecialchars($r['account_no']) ?></td>
+          <td><?= number_format($r['amount'], 2) ?></td>
+          <td><?= htmlspecialchars($r['justification']) ?></td>
+        </tr>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <?php while($r = $recipients->fetch_assoc()): ?>
+        <tr>
+          <td><?= htmlspecialchars($r['name']) ?></td>
+          <td><?= htmlspecialchars($r['bank']) ?></td>
+          <td><?= htmlspecialchars($r['account_no']) ?></td>
+          <td><?= number_format($r['amount'], 2) ?></td>
+          <td><?= htmlspecialchars($r['justification']) ?></td>
+        </tr>
+        <?php endwhile; ?>
+      <?php endif; ?>
     </tbody>
   </table>
 
@@ -69,4 +98,3 @@ $recipients = $stmt2->get_result();
 
 </body>
 </html>
-
