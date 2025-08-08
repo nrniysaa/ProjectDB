@@ -1,62 +1,74 @@
+<?php
+// Get project code from URL
+$projectCode = $_GET['code'] ?? '';
+
+// Example data (replace with DB fetch later)
+$projects = [
+    'UHS001' => [
+        'title' => 'Website Development',
+        'status' => 'On Going',
+        'under' => 'JELITA',
+        'description' => 'Developing a responsive company website with modern UI.',
+        'deliverables' => 'Homepage, About Us, Contact Form, CMS',
+        'duration' => '2 years',
+        'value' => 'RM 50,000',
+        'costing' => 'RM 45,000',
+        'sdg' => 'Goal 9: Industry, Innovation and Infrastructure'
+    ],
+    'UHS002' => [
+        'title' => 'Mobile App',
+        'status' => 'Completed',
+        'under' => 'UTeM Holdings',
+        'description' => 'Android and iOS application for internal use.',
+        'deliverables' => 'Login system, Dashboard, Push notifications',
+        'duration' => '1 year',
+        'value' => 'RM 80,000',
+        'costing' => 'RM 78,000',
+        'sdg' => 'Goal 9 & 11'
+    ]
+];
+
+// Use selected project or show default
+$project = $projects[$projectCode] ?? [
+    'title' => 'Unknown Project',
+    'status' => '-',
+    'under' => '-',
+    'description' => 'No description available.',
+    'deliverables' => '-',
+    'duration' => '-',
+    'value' => '-',
+    'costing' => '-',
+    'sdg' => '-'
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Project Details</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
 </head>
 <body>
 
-  <!-- Include header -->
-  <?php include 'header.html'; ?>
-
-  <!-- Main Content -->
+   <?php include 'header.html'; ?>
 
   <div class="details-container">
     <div class="details-box">
-      <h2 class="details-title">Example</h2>
+      <h2 class="details-title"><?= htmlspecialchars($project['title']) ?></h2>
       <table class="details-table">
-        <tr>
-          <td><strong>Project Code</strong></td>
-          <td>: UHS234 (auto)</td>
-        </tr>
-        <tr>
-          <td><strong>Project Status</strong></td>
-          <td>: On Going</td>
-        </tr>
-        <tr>
-          <td><strong>Project Under</strong></td>
-          <td>: JELITA</td>v
-        </tr>
-        <tr>
-          <td><strong>Project Description</strong></td>
-          <td>: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
-        </tr>
-        <tr>
-          <td><strong>Project Deliverables</strong></td>
-          <td>: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
-        </tr>
-        <tr>
-          <td><strong>Project Duration</strong></td>
-          <td>: 2 years</td>
-        </tr>
-        <tr>
-          <td><strong>Project Value</strong></td>
-          <td>: RM</td>
-        </tr>
-        <tr>
-          <td><strong>Project Costing</strong></td>
-          <td>: RM</td>
-        </tr>
-        <tr>
-          <td><strong>Project Relationship With Sustainable<br>Development Goals (SDG)</strong></td>
-          <td>: </td>
-        </tr>
+        <tr><td><strong>Project Code</strong></td><td>: <?= htmlspecialchars($projectCode) ?></td></tr>
+        <tr><td><strong>Project Status</strong></td><td>: <?= htmlspecialchars($project['status']) ?></td></tr>
+        <tr><td><strong>Project Under</strong></td><td>: <?= htmlspecialchars($project['under']) ?></td></tr>
+        <tr><td><strong>Project Description</strong></td><td>: <?= htmlspecialchars($project['description']) ?></td></tr>
+        <tr><td><strong>Project Deliverables</strong></td><td>: <?= htmlspecialchars($project['deliverables']) ?></td></tr>
+        <tr><td><strong>Project Duration</strong></td><td>: <?= htmlspecialchars($project['duration']) ?></td></tr>
+        <tr><td><strong>Project Value</strong></td><td>: <?= htmlspecialchars($project['value']) ?></td></tr>
+        <tr><td><strong>Project Costing</strong></td><td>: <?= htmlspecialchars($project['costing']) ?></td></tr>
+        <tr><td><strong>Project Relationship With Sustainable<br>Development Goals (SDG)</strong></td><td>: <?= htmlspecialchars($project['sdg']) ?></td></tr>
       </table>
 
       <div class="details-buttons">
-        <button class="back-btn">BACK</button>
+        <a href="projectDirectory.php" class="back-btn">BACK</a>
         <button class="edit-btn">EDIT</button>
       </div>
     </div>
