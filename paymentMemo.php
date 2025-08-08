@@ -55,7 +55,7 @@ $result = mysqli_query($conn, $query);
       <?php else: ?>
         <!-- Example Row if no data -->
         <tr>
-          <td>PRJ001</td>
+          <td>UH234</td>
           <td>Example Project Title</td>
           <td style="text-align: right;">
             <a href="viewMemo.php?memo_id=1" class="memo-view-link">View Memo</a>
