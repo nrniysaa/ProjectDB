@@ -68,8 +68,8 @@ $project = $projects[$projectCode] ?? [
       </table>
 
       <div class="details-buttons">
-        <a href="projectDirectory.php" class="back-btn">BACK</a>
-        <button class="edit-btn">EDIT</button>
+        <button class="back-btn" onclick="window.location.href='projectDirectory.php'">BACK</button>
+        <button class="edit-btn" onclick="window.location.href='editProject.php?code=<?= urlencode($projectCode) ?>'">EDIT</button>
       </div>
     </div>
   </div>

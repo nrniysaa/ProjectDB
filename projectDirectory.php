@@ -6,21 +6,20 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
   <style>
-    /* Keep links styled like your View Memo */
+    /* Make clickable link look like normal text */
     .project-link {
-      color: black;
-      text-decoration: none;
+      color: #30457d;
       font-weight: bold;
+      text-decoration: none;
     }
     .project-link:hover {
-      color: #444;
       text-decoration: underline;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- Include header -->
   <?php include 'header.html'; ?>
 
   <!-- Banner -->
@@ -31,7 +30,7 @@
 
   <!-- Search Bar -->
   <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search Project" class="search-input">
+    <input type="text" id="projectSearch" placeholder="Search Project" class="search-input">
   </div>
 
   <!-- New Project Button -->
@@ -54,28 +53,14 @@
           <td><a href="projectDetails.php?code=UHS001" class="project-link">UHS001</a></td>
           <td><a href="projectDetails.php?code=UHS001" class="project-link">Website Development</a></td>
           <td><span class="badge ongoing">On Going</span></td>
-          <td><button class="edit-btn">✎</button></td>
+          <td><a href="editProject.php?project_id=UHS001" class="edit-btn">✎</a></td>
           <td><button class="delete-btn">❌</button></td>
         </tr>
         <tr>
           <td><a href="projectDetails.php?code=UHS002" class="project-link">UHS002</a></td>
           <td><a href="projectDetails.php?code=UHS002" class="project-link">Mobile App</a></td>
           <td><span class="badge completed">Completed</span></td>
-          <td><button class="edit-btn">✎</button></td>
-          <td><button class="delete-btn">❌</button></td>
-        </tr>
-        <tr>
-          <td><a href="projectDetails.php?code=UHS003" class="project-link">UHS003</a></td>
-          <td><a href="projectDetails.php?code=UHS003" class="project-link">System Upgrade</a></td>
-          <td><span class="badge extend">Extend</span></td>
-          <td><button class="edit-btn">✎</button></td>
-          <td><button class="delete-btn">❌</button></td>
-        </tr>
-        <tr>
-          <td><a href="projectDetails.php?code=UHS004" class="project-link">UHS004</a></td>
-          <td><a href="projectDetails.php?code=UHS004" class="project-link">Research Project</a></td>
-          <td><span class="badge cancelled">Cancelled</span></td>
-          <td><button class="edit-btn">✎</button></td>
+          <td><a href="editProject.php?project_id=UHS002" class="edit-btn">✎</a></td>
           <td><button class="delete-btn">❌</button></td>
         </tr>
       </tbody>
@@ -83,8 +68,8 @@
   </div>
 
   <script>
-    // Live search functionality
-    document.getElementById("searchInput").addEventListener("keyup", function () {
+    // Live search filter
+    document.getElementById("projectSearch").addEventListener("keyup", function() {
       let filter = this.value.toLowerCase();
       let rows = document.querySelectorAll("#projectTable tbody tr");
 
