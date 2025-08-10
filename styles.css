@@ -75,38 +75,6 @@ body {
   background-color: #f2f2f2;
 }
 
-.banner {
-  position: relative;
-  text-align: center;
-  overflow: visible; /* Allow shadow to render outside */
-  padding: 20px; /* Space around the image */
-  background-color: #f5f5f5; /* Light background for contrast */
-}
-
-.banner-img {
-  width: 100%;
-  max-width: 1200px;
-  height: 350px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-  border-radius: 10px; /* Optional rounded corners */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Drop shadow */
-  filter: brightness(0.85) blur(1px); /* Adjust image quality/contrast */
-  transform: scale(1.02); /* Slight zoom effect */
-}
-
-.banner-title {
-  position: absolute;
-  bottom: 40px;
-  left: 60px;
-  font-size: 50px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  z-index: 2;
-}
-
 
 
 .card-container {
@@ -147,9 +115,16 @@ body {
 
 .search-container {
   text-align: center;
-  margin: 20px 0;
+  margin: 50px 0;
 }
 
+.memo-search input[type="text"] {
+  width: 300px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 15px;
+}
 .search-input {
   padding: 8px 16px;
   border-radius: 8px;
@@ -157,17 +132,18 @@ body {
   width: 250px;
 }
 
+/* Container for the button */
 .button-container {
   text-align: center;
-  margin-bottom: 20px;
 }
+
 
 .new-project-btn {
   display: inline-block;
   background-color: #365686;
   color: white;
   padding: 10px 20px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
@@ -973,3 +949,5 @@ button[type="submit"] {
     display: none !important;
   }
 }
+
+
