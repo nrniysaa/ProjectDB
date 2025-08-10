@@ -7,8 +7,46 @@
   <title>Project Overview</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
+  <style>
+    /* Base Style */
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Banner */
+    .overview-banner {
+      position: relative;
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .overview-banner img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.65);
+    }
+
+    .overview-banner h1 {
+      position: absolute;
+      bottom: 20px;
+      left: 50px;
+      font-size: 46px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+  </style>
 </head>
 <body>
+
+
 
   <?php include 'header.html'; ?>
 
@@ -43,11 +81,12 @@
   $value_500k_plus = $conn->query("SELECT COUNT(*) as count FROM projects WHERE value_category = '500K+'")->fetch_assoc()['count'];
   ?>
 
-  <!-- Banner -->
-  <div class="banner">
-    <img src="image/dashboard2.jpg" alt="Banner" class="banner-img">
-    <h1 class="banner-title">Project Overview</h1>
-  </div>
+
+<div class="overview-banner">
+  <img src="image/dashboard2.jpg" alt="Banner">
+  <h1>Project Overview</h1>
+</div>
+
 
   <!-- Summary Cards -->
   <div class="card-container">
