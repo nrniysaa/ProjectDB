@@ -108,6 +108,7 @@ $recipientsData = [
 @media print {
     body * {
         visibility: hidden;
+
     }
     .memo-container, .memo-container * {
         visibility: visible;
@@ -125,7 +126,7 @@ $recipientsData = [
 }
 </style>
 </head>
-<body>
+<body style="padding-top: 100px;">
 
 <div class="memo-container">
     <div class="memo-title">MEMO</div>

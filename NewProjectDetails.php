@@ -6,14 +6,14 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
 </head>
-<body style="padding-top: 120px;">
+<body style="padding-top: 100px;">
 
   <!-- Include header -->
   <?php include 'header.html'; ?>
 
 <div class="container">
     <h2>Add New Project</h2>
-    <form action="submitProject.php" method="post">
+    <form action="NewProjectConsult.php" method="post">
         <label for="projectCode">Project Code</label>
         <input type="text" name="projectCode" required>
 
