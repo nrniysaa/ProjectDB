@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = ""; // usually empty in XAMPP
+$pass = "";
 $dbname = "uhprojdb";
 
 $conn = new mysqli($host, $user, $pass, $dbname);

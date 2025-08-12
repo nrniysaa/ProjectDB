@@ -674,7 +674,7 @@ button[type="submit"] {
 
 .memo-table thead {
   background-color: #30457d;
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
@@ -786,30 +786,30 @@ button[type="submit"] {
 }
 
 .report-table {
-  width: 80%;
-  border-collapse: collapse;
-  background-color: white;
+  width: 80% !important;
+  border-collapse: collapse !important;
+  background-color: white !important;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .report-table thead {
-  background-color: #30457d;
-  color: black;
+  background-color: #30457d !important;
+  color: white !important;
   font-weight: bold;
 }
 
 .report-table th,
 .report-table td {
-  padding: 12px 15px;
+  padding: 12px 15px !important;
   font-size: 14px;
   line-height: 1.4;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0 !important;
 }
 
 .report-view-link {
-  color: #30457d;
+  color: #30457d !important;
   font-weight: bold;
   text-decoration: none;
 }
@@ -867,7 +867,7 @@ button[type="submit"] {
 
 .section-header-left,
 .section-header-right {
-  background-color: #30457d;
+  background-color: #a8b2d6;
   font-weight: bold;
   text-align: center;
   border: 1px solid black;
