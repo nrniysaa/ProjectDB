@@ -85,7 +85,7 @@
       margin-top: 10px;
     }
 
-    .loginadmin-btn {
+    .loginuser-btn {
       width: 100%;
       padding: 10px;
       background-color: #cad0e1ff;
@@ -124,9 +124,9 @@
 
   <!-- Login box -->
   <div class="login-box">
-    <h2>LOG IN AS USER</h2>
+    <h2>LOG IN AS ADMIN</h2>
     <form action="login_process.php" method="post">
-      <input type="text" name="username" placeholder="Staff No/ Username/ Email" required>
+      <input type="text" name="username" placeholder="Admin Email" required>
       <input type="password" name="password" placeholder="Password" required>
 
       <div class="login-options">
@@ -137,12 +137,8 @@
       </div>
 
       <button type="submit" class="login-btn">Log In</button>
-      <button type="submit" class="loginadmin-btn"><a href="admin_login.php">Log In As Admin</a></button>
+      <button class="loginuser-btn"><a href="user_login.php">Log  In As User</a></button>
     </form>
-
-    <div class="signup-link">
-      DON'T HAVE AN ACCOUNT? <a href="signup.php">Sign Up</a>
-    </div>
   </div>
 
 </body>
