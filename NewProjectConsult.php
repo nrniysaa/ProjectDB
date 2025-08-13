@@ -15,7 +15,7 @@
 <div class="container" style="margin-top: 150px;">
     <h2>CONSULTANCY INFORMATION</h2>
 
-    <form action="submitConsultancy.php" method="post">
+    <form action="costbreakdown.php" method="post">
         <fieldset>
             
             <legend><strong>Project Leader Information</strong></legend>

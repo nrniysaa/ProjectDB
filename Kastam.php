@@ -36,5 +36,5 @@
     <a href="paymentMemo.php">Payment Memo</a>
     <a href="kastam.php">KASTAM</a>
     <a href="Report.php">Report</a>
-    <a href="loginAs.php">Log Out</a>
+    <a href="logout.php">Log Out</a>
   </div>

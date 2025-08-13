@@ -46,7 +46,7 @@
 
     .login-box input[type="text"],
     .login-box input[type="password"] {
-      width: 100%;
+      width: 95%;
       padding: 10px;
       margin: 8px 0;
       border: 1px solid #ccc;

@@ -48,7 +48,7 @@
     .signup-box input[type="tel"],
     .signup-box input[type="email"],
     .signup-box input[type="password"] {
-      width: 100%;
+      width: 90%;
       padding: 10px;
       margin: 8px 0;
       border: 1px solid #ccc;
@@ -56,7 +56,7 @@
     }
 
     .signup-btn {
-      width: 100%;
+      width: 95%;
       padding: 10px;
       background-color: #30457d;
       color: white;

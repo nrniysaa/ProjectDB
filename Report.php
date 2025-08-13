@@ -9,6 +9,13 @@ include 'header.html';
   <title>Reports</title>
   <!-- Load styles AFTER header.html -->
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .report-table thead {
+  background-color: #30457d !important;
+  color: white !important;
+  font-weight: bold;
+}
+  </style>
 </head>
 <body>
 
@@ -20,7 +27,7 @@ include 'header.html';
 
 <!-- Search Bar -->
 <div class="report-search">
-  <input type="text" id="reportSearch" placeholder="🔍︎ Search Report">
+  <input type="text" id="reportSearch" placeholder="🔍︎ Search Project">
 </div>
 
 <!-- Report Table -->
@@ -28,7 +35,7 @@ include 'header.html';
   <table class="report-table" id="reportTable">
     <thead>
       <tr>
-        <th>REPORT NAME</th>
+        <th>PROJECT</th>
         <th style="text-align: right;"></th>
       </tr>
     </thead>
@@ -46,7 +53,7 @@ include 'header.html';
         </td>
       </tr>
       <tr>
-        <td>Financial Summary</td>
+        <td>Report 3</td>
         <td style="text-align: right;">
           <a href="viewReport.php" class="report-view-link">View Report</a>
         </td>

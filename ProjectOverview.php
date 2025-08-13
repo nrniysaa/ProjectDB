@@ -153,6 +153,18 @@
         <p>Projects valued more than 500K</p>
         <h2><?= $value_500k_plus ?></h2>
       </div>
+      <div class="value-card">
+        <p>January - March</p>
+        <h2><?= $value_500k_plus ?></h2>
+      </div>
+      <div class="value-card">
+        <p>April - June</p>
+        <h2><?= $value_500k_plus ?></h2>
+      </div>
+      <div class="value-card">
+        <p>July - September</p>
+        <h2><?= $value_500k_plus ?></h2>
+      </div>
     </div>
   </div>
 

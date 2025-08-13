@@ -188,7 +188,7 @@ body {
 }
 
 .badge.ongoing {
-  background-color: #3f74c0;
+  background-color: #d1a520c4;
 }
 
 .badge.completed {
@@ -313,7 +313,7 @@ form label {
 }
 
 form input[type="text"] {
-    width: 100%;
+    width: 95%;
     padding: 8px;
     margin-top: 5px;
     border-radius: 4px;

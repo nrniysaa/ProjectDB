@@ -138,7 +138,7 @@
     }
 
     .ongoing {
-      background-color: #fff4cc;
+      background-color: #FFC107;
       color: #8a6d3b;
     }
 
@@ -147,8 +147,8 @@
       color: #2e7d32;
     }
 
-    /* Buttons */
-    .editproject-btn, .delete-btn {
+    /* Edit & Delete Buttons */
+    .editproject-btn, .directorydelete-btn {
       border: none;
       padding: 6px 10px;
       font-size: 14px;
@@ -166,13 +166,45 @@
       background-color: #565e64;
     }
 
-    .delete-btn {
+    .directorydelete-btn {
       background-color: #dc3545;
       color: white;
     }
 
-    .delete-btn:hover {
-      background-color: #bb2d3b;
+    .directorydelete-btn:hover {
+      background-color: #b02a37;
+    }
+
+    /* Dropdown container */
+    .edit-dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown menu */
+    .edit-dropdown {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 10;
+      min-width: 160px;
+    }
+
+    .edit-dropdown a {
+      display: block;
+      padding: 10px;
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .edit-dropdown a:hover {
+      background-color: #f4f4f4;
     }
   </style>
 </head>
@@ -213,15 +245,27 @@
           <td><a href="projectDetails.php?code=UHS001" class="project-link">UHS001</a></td>
           <td><a href="projectDetails.php?code=UHS001" class="project-link">Website Development</a></td>
           <td><span class="badge ongoing">On Going</span></td>
-          <td><a href="editProject.php?project_id=UHS001" class="editproject-btn">✎</a></td>
-          <td><button class="delete-btn">❌</button></td>
+          <td class="edit-dropdown-container">
+            <button class="editproject-btn">✎</button>
+            <div class="edit-dropdown">
+              <a href="editProject.php?project_id=UHS001">Project Details</a>
+              <a href="updatePayment.php?project_id=UHS001">Update Payment</a>
+            </div>
+          </td>
+          <td><button class="directorydelete-btn">❌</button></td>
         </tr>
         <tr>
           <td><a href="projectDetails.php?code=UHS002" class="project-link">UHS002</a></td>
           <td><a href="projectDetails.php?code=UHS002" class="project-link">Mobile App</a></td>
           <td><span class="badge completed">Completed</span></td>
-          <td><a href="editProject.php?project_id=UHS002" class="editproject-btn">✎</a></td>
-          <td><button class="delete-btn">❌</button></td>
+          <td class="edit-dropdown-container">
+            <button class="editproject-btn">✎</button>
+            <div class="edit-dropdown">
+              <a href="editProject.php?project_id=UHS002">Project Details</a>
+              <a href="updatePayment.php?project_id=UHS002">Update Payment</a>
+            </div>
+          </td>
+          <td><button class="directorydelete-btn">❌</button></td>
         </tr>
       </tbody>
     </table>
@@ -237,6 +281,31 @@
         let text = row.textContent.toLowerCase();
         row.style.display = text.includes(filter) ? "" : "none";
       });
+    });
+
+    // Toggle dropdown visibility
+    document.querySelectorAll('.editproject-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        let dropdown = this.nextElementSibling;
+
+        // Close all other dropdowns first
+        document.querySelectorAll('.edit-dropdown').forEach(menu => {
+          if (menu !== dropdown) menu.style.display = 'none';
+        });
+
+        // Toggle this one
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.edit-dropdown-container')) {
+        document.querySelectorAll('.edit-dropdown').forEach(menu => {
+          menu.style.display = 'none';
+        });
+      }
     });
   </script>
 

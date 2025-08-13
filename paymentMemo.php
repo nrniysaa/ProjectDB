@@ -17,6 +17,13 @@ $result = mysqli_query($conn, $query);
   <title>Payment Memo</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="image/logoutemfavicon.png">
+  <style>
+    .memo-table thead {
+        background-color: #30457d;
+        color: white;
+        font-weight: bold;
+      }
+  </style>
 </head>
 <body>
 

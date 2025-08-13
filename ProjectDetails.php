@@ -57,7 +57,9 @@ $project = $projects[$projectCode] ?? [
       <h2 class="details-title"><?= htmlspecialchars($project['title']) ?></h2>
       <table class="details-table">
         <tr><td><strong>Project Code</strong></td><td>: <?= htmlspecialchars($projectCode) ?></td></tr>
-        <tr><td><strong>Project Status</strong></td><td>: <?= htmlspecialchars($project['status']) ?></td></tr>
+        <tr><td><strong>Status</strong></td><td>: <?= htmlspecialchars($project['status']) ?></td></tr>
+        <tr><td><strong>Quotation</strong></td><td>: <?= htmlspecialchars($project['status']) ?></td></tr>
+        <tr><td><strong>Client</strong></td><td>: <?= htmlspecialchars($project['status']) ?></td></tr>
         <tr><td><strong>Project Under</strong></td><td>: <?= htmlspecialchars($project['under']) ?></td></tr>
         <tr><td><strong>Project Description</strong></td><td>: <?= htmlspecialchars($project['description']) ?></td></tr>
         <tr><td><strong>Project Deliverables</strong></td><td>: <?= htmlspecialchars($project['deliverables']) ?></td></tr>

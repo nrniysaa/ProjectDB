@@ -31,7 +31,7 @@
     .login-box {
       max-width: 400px;
       margin: 80px auto;
-      padding: 25px;
+        padding: 25px 25px 25px 25px;
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -46,7 +46,7 @@
 
     .login-box input[type="text"],
     .login-box input[type="password"] {
-      width: 100%;
+      width: 95%;
       padding: 10px;
       margin: 8px 0;
       border: 1px solid #ccc;

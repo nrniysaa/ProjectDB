@@ -83,7 +83,7 @@
     }
 
     button[type="button"] {
-      background-color: #667eea;
+      background-color: #30457d;
       color: white;
       border: none;
       padding: 7px 16px;
@@ -192,7 +192,7 @@
 
     <!-- Section B -->
     <section id="sectionB" class="cost-section">
-      <h3>B. Caj oleh Fakulti/PTJ</h3>
+      <h3>B. Kos Langsung</h3>
       <div class="inputs"></div>
       <button type="button" onclick="addItem('sectionB')">+ Add Item</button>
       <div class="jumlah-line">Jumlah B: RM <span id="totalB">0.00</span></div>
@@ -200,7 +200,7 @@
 
     <!-- Section C -->
     <section id="sectionC" class="cost-section">
-      <h3>C. Perbelanjaan Operasi</h3>
+      <h3>C. Penemu</h3>
       <div class="inputs"></div>
       <button type="button" onclick="addItem('sectionC')">+ Add Item</button>
       <div class="jumlah-line">Jumlah C: RM <span id="totalC">0.00</span></div>
@@ -208,7 +208,7 @@
 
     <!-- Section D -->
     <section id="sectionD" class="cost-section">
-      <h3>D. Lain-lain Perbelanjaan</h3>
+      <h3>D. Yuran Pengurusan</h3>
       <div class="inputs"></div>
       <button type="button" onclick="addItem('sectionD')">+ Add Item</button>
       <div class="jumlah-line">Jumlah D: RM <span id="totalD">0.00</span></div>
