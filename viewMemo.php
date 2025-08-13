@@ -1,11 +1,6 @@
 <?php include 'header.html'; ?>
 
 <?php
-// For now, skip DB connection since you don't have data yet
-// include 'db.php';
-// include 'header.html';
-
-// Example Memo Data (replace with DB later)
 $memo = [
     'ref_no' => 'MEMO-2025-001',
     'date' => '08/08/2025',
@@ -15,7 +10,6 @@ $memo = [
     'project_id' => 'UH234'
 ];
 
-// Example Recipients Data
 $recipientsData = [
     [
         'name' => 'Ali bin Ahmad',
@@ -101,34 +95,16 @@ $recipientsData = [
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
 }
 .memo-buttons button:hover, .memo-buttons a:hover {
     background: #444;
-}
-@media print {
-    body * {
-        visibility: hidden;
-
-    }
-    .memo-container, .memo-container * {
-        visibility: visible;
-    }
-    .memo-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        box-shadow: none;
-        border: 1px solid black;
-    }
-    .memo-buttons {
-        display: none;
-    }
 }
 </style>
 </head>
 <body style="padding-top: 100px;">
 
-<div class="memo-container">
+<div class="memo-container" id="memoContent">
     <div class="memo-title">MEMO</div>
     <div class="memo-subtitle">No. Rujukan: <?= htmlspecialchars($memo['ref_no']) ?></div>
 
@@ -154,11 +130,34 @@ $recipientsData = [
     </div>
     <?php endforeach; ?>
 
-    <div class="memo-buttons">
+    <div class="memo-buttons" id="memoButtons">
         <a href="paymentMemo.php">BACK</a>
         <button onclick="window.print()">PRINT MEMO</button>
+        <button id="downloadPdf">DOWNLOAD PDF</button>
     </div>
 </div>
+
+<!-- html2pdf.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script>
+document.getElementById("downloadPdf").addEventListener("click", function () {
+    var buttons = document.getElementById("memoButtons");
+    buttons.style.display = "none"; // Hide buttons before generating PDF
+
+    var element = document.getElementById("memoContent");
+    var opt = {
+        margin:       0.5,
+        filename:     'memo.pdf',
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+        buttons.style.display = "block"; // Show buttons back after download
+    });
+});
+</script>
 
 </body>
 </html>
