@@ -7,6 +7,7 @@ $memo = [
     'from_person' => 'Ahmad (Project Manager)',
     'to_person' => 'Maisarah (Finance Department)',
     'subject' => 'Payment Approval for Project UH234',
+    'description' => 'Ini adalah memo untuk kelulusan pembayaran projek UH234 yang melibatkan perkhidmatan konsultansi, pembelian bahan, dan kos perjalanan.',
     'project_id' => 'UH234'
 ];
 
@@ -41,6 +42,9 @@ $recipientsData = [
 <meta charset="UTF-8">
 <title>View Memo</title>
 <style>
+body {
+    font-family: Arial, sans-serif;
+}
 .memo-container {
     max-width: 800px;
     margin: 120px auto 30px auto;
@@ -48,7 +52,6 @@ $recipientsData = [
     border: 1px solid #000;
     border-radius: 8px;
     padding: 30px;
-    font-family: Arial, sans-serif;
 }
 .memo-title {
     text-align: center;
@@ -64,10 +67,14 @@ $recipientsData = [
 .memo-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .memo-header p {
     margin: 3px 0;
+}
+.memo-description {
+    margin-bottom: 30px;
+    font-style: italic;
 }
 .memo-section {
     margin-bottom: 25px;
@@ -82,6 +89,32 @@ $recipientsData = [
     width: 140px;
     font-weight: bold;
 }
+
+/* Signature table */
+.signature-page {
+    page-break-before: always;
+    max-width: 800px;
+    margin: 30px auto;
+}
+.signature-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.signature-table th, .signature-table td {
+    border: 1px solid black;
+    padding: 10px;
+    vertical-align: top;
+}
+.signature-table th {
+    background: #f0f0f0;
+}
+.signature-table td {
+    height: 150px;
+    padding-top: 20px;
+}
+
+/* Buttons */
 .memo-buttons {
     text-align: center;
     margin-top: 20px;
@@ -100,51 +133,109 @@ $recipientsData = [
 .memo-buttons button:hover, .memo-buttons a:hover {
     background: #444;
 }
+
+/* Print */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .memo-container, .memo-container *, 
+    .signature-page, .signature-page * {
+        visibility: visible;
+    }
+    .memo-container, .signature-page {
+        position: relative;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+        border: 1px solid black;
+    }
+    .memo-buttons {
+        display: none;
+    }
+}
 </style>
 </head>
 <body style="padding-top: 100px;">
 
-<div class="memo-container" id="memoContent">
-    <div class="memo-title">MEMO</div>
-    <div class="memo-subtitle">No. Rujukan: <?= htmlspecialchars($memo['ref_no']) ?></div>
+<div id="printArea">
+    <!-- Page 1: Memo -->
+    <div class="memo-container">
+        <div class="memo-title">MEMO</div>
+        <div class="memo-subtitle">No. Rujukan: <?= htmlspecialchars($memo['ref_no']) ?></div>
 
-    <div class="memo-header">
-        <div>
-            <p><strong>Daripada:</strong> <?= htmlspecialchars($memo['from_person']) ?></p>
-            <p><strong>Project Code:</strong> <?= htmlspecialchars($memo['project_id']) ?></p>
-            <p><strong>Perkara:</strong> <?= htmlspecialchars($memo['subject']) ?></p>
+        <div class="memo-header">
+            <div>
+                <p><strong>Daripada:</strong> <?= htmlspecialchars($memo['from_person']) ?></p>
+                <p><strong>Project Code:</strong> <?= htmlspecialchars($memo['project_id']) ?></p>
+                <p><strong>Perkara:</strong> <?= htmlspecialchars($memo['subject']) ?></p>
+            </div>
+            <div>
+                <p><strong>Kepada:</strong> <?= htmlspecialchars($memo['to_person']) ?></p>
+                <p><strong>Tarikh:</strong> <?= htmlspecialchars($memo['date']) ?></p>
+            </div>
         </div>
-        <div>
-            <p><strong>Kepada:</strong> <?= htmlspecialchars($memo['to_person']) ?></p>
-            <p><strong>Tarikh:</strong> <?= htmlspecialchars($memo['date']) ?></p>
+
+        <!-- Description outside header -->
+        <div class="memo-description">
+            <strong>Description:</strong> <?= htmlspecialchars($memo['description']) ?>
         </div>
+
+        <?php foreach ($recipientsData as $r): ?>
+        <div class="memo-section">
+            <p><span class="label">NAMA</span>: <?= htmlspecialchars($r['name']) ?></p>
+            <p><span class="label">BANK</span>: <?= htmlspecialchars($r['bank']) ?></p>
+            <p><span class="label">ACCOUNT No.</span>: <?= htmlspecialchars($r['account_no']) ?></p>
+            <p><span class="label">JUMLAH</span>: RM <?= htmlspecialchars($r['amount']) ?></p>
+            <p><span class="label">JUSTIFICATION</span>: <?= htmlspecialchars($r['justification']) ?></p>
+        </div>
+        <?php endforeach; ?>
     </div>
 
-    <?php foreach ($recipientsData as $r): ?>
-    <div class="memo-section">
-        <p><span class="label">NAMA</span>: <?= htmlspecialchars($r['name']) ?></p>
-        <p><span class="label">BANK</span>: <?= htmlspecialchars($r['bank']) ?></p>
-        <p><span class="label">ACCOUNT No.</span>: <?= htmlspecialchars($r['account_no']) ?></p>
-        <p><span class="label">JUMLAH</span>: RM <?= htmlspecialchars($r['amount']) ?></p>
-        <p><span class="label">JUSTIFICATION</span>: <?= htmlspecialchars($r['justification']) ?></p>
+    <!-- Page 2: Signature Table -->
+    <div class="signature-page">
+        <table class="signature-table">
+            <tr>
+                <th>Disediakan oleh :</th>
+                <th>Disokong oleh :</th>
+                <th>Diluluskan oleh :</th>
+            </tr>
+            <tr>
+                <td>
+                    Tandatangan:<br><br><br><br>
+                    Tarikh: _______________<br>
+                    Nama: _______________<br>
+                    Jawatan: _______________
+                </td>
+                <td>
+                    Tandatangan:<br><br><br><br>
+                    Tarikh: _______________<br>
+                    Nama: _______________<br>
+                    Jawatan: _______________
+                </td>
+                <td>
+                    Tandatangan:<br><br><br><br>
+                    Tarikh: _______________<br>
+                    Nama: _______________<br>
+                    Jawatan: _______________
+                </td>
+            </tr>
+        </table>
     </div>
-    <?php endforeach; ?>
+</div>
 
-    <div class="memo-buttons" id="memoButtons">
-        <a href="paymentMemo.php">BACK</a>
-        <button onclick="window.print()">PRINT MEMO</button>
-        <button id="downloadPdf">DOWNLOAD PDF</button>
-    </div>
+<!-- Buttons -->
+<div class="memo-buttons">
+    <a href="paymentMemo.php">BACK</a>
+    <button onclick="window.print()">PRINT MEMO</button>
+    <button id="downloadPdf">DOWNLOAD PDF</button>
 </div>
 
 <!-- html2pdf.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 <script>
 document.getElementById("downloadPdf").addEventListener("click", function () {
-    var buttons = document.getElementById("memoButtons");
-    buttons.style.display = "none"; // Hide buttons before generating PDF
-
-    var element = document.getElementById("memoContent");
+    var element = document.getElementById("printArea");
     var opt = {
         margin:       0.5,
         filename:     'memo.pdf',
@@ -152,10 +243,7 @@ document.getElementById("downloadPdf").addEventListener("click", function () {
         html2canvas:  { scale: 2 },
         jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
-
-    html2pdf().set(opt).from(element).save().then(() => {
-        buttons.style.display = "block"; // Show buttons back after download
-    });
+    html2pdf().set(opt).from(element).save();
 });
 </script>
 
