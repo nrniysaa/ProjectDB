@@ -6,6 +6,13 @@
   <meta charset="UTF-8">
   <title>Project Report</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .final-report-table thead {
+  background-color: #30457d !important;
+  color: white !important;
+  font-weight: bold;
+}
+  </style>
 </head>
 <body style="padding-top: 20px;">
 

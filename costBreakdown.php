@@ -180,7 +180,8 @@
 <div class="container">
   <h2>PROJECT COST BREAKDOWN</h2>
 
-  <form id="costForm">
+  <form id="costForm" action="memoForm.php" method="post">
+
 
     <!-- Section A -->
     <section id="sectionA" class="cost-section">
@@ -275,6 +276,16 @@
     document.getElementById('totalD').textContent = totalD.toFixed(2);
     document.getElementById('sstAmount').textContent = sstAmount.toFixed(2);
     document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+
+    document.getElementById('costForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent auto-submit
+
+  updateTotals(); // Make sure totals are updated
+
+  // Redirect to memoForm.php
+  window.location.href = 'memoForm.php';
+});
+
   }
 </script>
 

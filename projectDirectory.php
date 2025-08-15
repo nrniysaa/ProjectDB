@@ -87,7 +87,7 @@
     }
 
     .directory-table {
-      width: 100%;
+      width: 70%;
       border-collapse: collapse;
       background-color: white;
       border-radius: 10px;
