@@ -7,7 +7,7 @@ $memo = [
     'from_person' => 'Ahmad (Project Manager)',
     'to_person' => 'Maisarah (Finance Department)',
     'subject' => 'Payment Approval for Project UH234',
-    'description' => 'Ini adalah memo untuk kelulusan pembayaran projek UH234 yang melibatkan perkhidmatan konsultansi, pembelian bahan, dan kos perjalanan.',
+    'description' => 'This is a memo for the payment approval of Project UH234, which involves consultancy services, purchase of materials, and travel expenses.',
     'project_id' => 'UH234'
 ];
 
@@ -162,17 +162,17 @@ body {
     <!-- Page 1: Memo -->
     <div class="memo-container">
         <div class="memo-title">MEMO</div>
-        <div class="memo-subtitle">No. Rujukan: <?= htmlspecialchars($memo['ref_no']) ?></div>
+        <div class="memo-subtitle">Reference No.: <?= htmlspecialchars($memo['ref_no']) ?></div>
 
         <div class="memo-header">
             <div>
-                <p><strong>Daripada:</strong> <?= htmlspecialchars($memo['from_person']) ?></p>
+                <p><strong>From:</strong> <?= htmlspecialchars($memo['from_person']) ?></p>
                 <p><strong>Project Code:</strong> <?= htmlspecialchars($memo['project_id']) ?></p>
-                <p><strong>Perkara:</strong> <?= htmlspecialchars($memo['subject']) ?></p>
+                <p><strong>Subject:</strong> <?= htmlspecialchars($memo['subject']) ?></p>
             </div>
             <div>
-                <p><strong>Kepada:</strong> <?= htmlspecialchars($memo['to_person']) ?></p>
-                <p><strong>Tarikh:</strong> <?= htmlspecialchars($memo['date']) ?></p>
+                <p><strong>To:</strong> <?= htmlspecialchars($memo['to_person']) ?></p>
+                <p><strong>Date:</strong> <?= htmlspecialchars($memo['date']) ?></p>
             </div>
         </div>
 
@@ -182,10 +182,10 @@ body {
 
         <?php foreach ($recipientsData as $r): ?>
         <div class="memo-section">
-            <p><span class="label">NAMA</span>: <?= htmlspecialchars($r['name']) ?></p>
+            <p><span class="label">NAME</span>: <?= htmlspecialchars($r['name']) ?></p>
             <p><span class="label">BANK</span>: <?= htmlspecialchars($r['bank']) ?></p>
             <p><span class="label">ACCOUNT No.</span>: <?= htmlspecialchars($r['account_no']) ?></p>
-            <p><span class="label">JUMLAH</span>: RM <?= htmlspecialchars($r['amount']) ?></p>
+            <p><span class="label">AMOUNT</span>: RM <?= htmlspecialchars($r['amount']) ?></p>
             <p><span class="label">JUSTIFICATION</span>: <?= htmlspecialchars($r['justification']) ?></p>
         </div>
         <?php endforeach; ?>
@@ -195,28 +195,28 @@ body {
     <div class="signature-page">
         <table class="signature-table">
             <tr>
-                <th>Disediakan oleh :</th>
-                <th>Disokong oleh :</th>
-                <th>Diluluskan oleh :</th>
+                <th>Prepared by:</th>
+                <th>Supported by:</th>
+                <th>Approved by:</th>
             </tr>
             <tr>
                 <td>
-                    Tandatangan:<br><br><br><br>
-                    Tarikh: _______________<br>
-                    Nama: _______________<br>
-                    Jawatan: _______________
+                    Signature:<br><br><br><br>
+                    Date: _______________<br>
+                    Name: _______________<br>
+                    Position: _______________
                 </td>
                 <td>
-                    Tandatangan:<br><br><br><br>
-                    Tarikh: _______________<br>
-                    Nama: _______________<br>
-                    Jawatan: _______________
+                    Signature:<br><br><br><br>
+                    Date: _______________<br>
+                    Name: _______________<br>
+                    Position: _______________
                 </td>
                 <td>
-                    Tandatangan:<br><br><br><br>
-                    Tarikh: _______________<br>
-                    Nama: _______________<br>
-                    Jawatan: _______________
+                    Signature:<br><br><br><br>
+                    Date: _______________<br>
+                    Name: _______________<br>
+                    Position: _______________
                 </td>
             </tr>
         </table>
