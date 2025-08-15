@@ -206,6 +206,48 @@
     .edit-dropdown a:hover {
       background-color: #f4f4f4;
     }
+
+    /* Modal style */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 150px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 350px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .modal-buttons {
+      margin-top: 20px;
+    }
+    .modal-buttons button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+    .btn-cancel {
+      background-color: #6c757d;
+      color: #fff;
+    }
+    .btn-delete {
+      background-color: #dc3545;
+      color: #fff;
+    }
   </style>
 </head>
 <body style="padding-top: 120px;">
@@ -252,7 +294,7 @@
               <a href="updatePayment.php?project_id=UHS001">Update Payment</a>
             </div>
           </td>
-          <td><button class="directorydelete-btn">❌</button></td>
+          <td><button class="directorydelete-btn" data-project="UHS001">❌</button></td>
         </tr>
         <tr>
           <td><a href="projectDetails.php?code=UHS002" class="project-link">UHS002</a></td>
@@ -265,10 +307,22 @@
               <a href="updatePayment.php?project_id=UHS002">Update Payment</a>
             </div>
           </td>
-          <td><button class="directorydelete-btn">❌</button></td>
+          <td><button class="directorydelete-btn" data-project="UHS002">❌</button></td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <h3>Confirm Delete</h3>
+      <p>Are you sure you want to delete <strong id="projectName"></strong>?</p>
+      <div class="modal-buttons">
+        <button class="btn-cancel" id="cancelDelete">Cancel</button>
+        <a href="#" id="confirmDeleteLink"><button class="btn-delete">Delete</button></a>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -305,6 +359,30 @@
         document.querySelectorAll('.edit-dropdown').forEach(menu => {
           menu.style.display = 'none';
         });
+      }
+    });
+
+    // Delete confirmation modal
+    let deleteModal = document.getElementById('deleteModal');
+    let projectNameSpan = document.getElementById('projectName');
+    let confirmDeleteLink = document.getElementById('confirmDeleteLink');
+
+    document.querySelectorAll('.directorydelete-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        let projectCode = this.getAttribute('data-project');
+        projectNameSpan.textContent = projectCode;
+        confirmDeleteLink.href = 'deleteProject.php?project_id=' + projectCode;
+        deleteModal.style.display = 'block';
+      });
+    });
+
+    document.getElementById('cancelDelete').addEventListener('click', function() {
+      deleteModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target == deleteModal) {
+        deleteModal.style.display = 'none';
       }
     });
   </script>

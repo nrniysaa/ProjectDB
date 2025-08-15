@@ -176,7 +176,6 @@ body {
             </div>
         </div>
 
-        <!-- Description outside header -->
         <div class="memo-description">
             <strong>Description:</strong> <?= htmlspecialchars($memo['description']) ?>
         </div>
